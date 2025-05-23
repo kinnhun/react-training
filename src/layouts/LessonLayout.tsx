@@ -1,4 +1,3 @@
-import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import styles from './LessonLayout.module.scss';
 import LessonSidebar from './siderbar/LessonSidebar';

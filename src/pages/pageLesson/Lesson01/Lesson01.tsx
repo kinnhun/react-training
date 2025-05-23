@@ -1,4 +1,3 @@
-import React from 'react';
 
 export const Lesson01 = () => {
   return (
