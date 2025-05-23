@@ -1,0 +1,23 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.lessonBox {
+  background-color: #94a3b8; // slate-400
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #e2e8f0; // slate-200
+    color: #1e293b;
+  }
+}

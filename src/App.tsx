@@ -1,37 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from 'react';
+import AppRouter from './routes/AppRouter';
+import toast, { Toaster, useToasterStore } from 'react-hot-toast';
+
+const TOAST_LIMIT = 3;
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { toasts } = useToasterStore();
+
+  // Enforce toast limit
+  useEffect(() => {
+    toasts
+      .filter((t) => t.visible)       // Only visible toasts
+      .filter((_, i) => i >= TOAST_LIMIT) // Over limit
+      .forEach((t) => toast.dismiss(t.id)); // Dismiss extras
+  }, [toasts]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          <h1>Test deploy webapp using github action </h1>
-                    <h1>Test deploy webapp using github action </h1>
-
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <AppRouter />
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 3000,
+          style: {
+            fontSize: '14px',
+          },
+        }}
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
