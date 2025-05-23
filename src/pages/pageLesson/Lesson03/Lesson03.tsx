@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { faker } from '@faker-js/faker';
 import { Table, Pagination, Space, Button, Image } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
