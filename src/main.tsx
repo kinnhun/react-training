@@ -1,7 +1,5 @@
-// main.tsx
-import React from 'react';
+import React from 'react'; // ✅ BẮT BUỘC với StrictMode
 import ReactDOM from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
 import App from './App';
 import { Provider } from 'react-redux';
 import store from './store/store';
@@ -9,9 +7,7 @@ import store from './store/store';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter>
-        <App />
-      </HashRouter>
+      <App />
     </Provider>
   </React.StrictMode>
 );
