@@ -4,9 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="refresh" content="0; url=/react-training/index.html" />
     <script>
-      // Lấy pathname sau /react-training
-      const redirectPath = location.pathname.replace('/react-training', '') + location.search + location.hash;
-      location.replace('/react-training/index.html#' + redirectPath);
+      const repoBase = '/react-training';
+      const redirectPath = location.pathname.startsWith(repoBase)
+        ? location.pathname.slice(repoBase.length)
+        : location.pathname;
+
+      const finalUrl = `${repoBase}/index.html#${redirectPath}${location.search}${location.hash}`;
+      location.replace(finalUrl);
     </script>
     <title>Redirecting...</title>
   </head>
