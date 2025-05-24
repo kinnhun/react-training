@@ -1,3 +1,4 @@
+// kanbanSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -19,12 +20,23 @@ interface BoardState {
   columns: Column[];
 }
 
+const loadFromLocalStorage = (): Column[] | null => {
+  try {
+    const saved = localStorage.getItem('kanban-board');
+    return saved ? JSON.parse(saved) : null;
+  } catch {
+    return null;
+  }
+};
+
+const defaultColumns: Column[] = [
+  { id: 'todo', title: 'TO DO', tasks: [] },
+  { id: 'inProgress', title: 'IN PROGRESS', tasks: [] },
+  { id: 'done', title: 'DONE', tasks: [] },
+];
+
 const initialState: BoardState = {
-  columns: [
-    { id: 'todo', title: 'TO DO', tasks: [] },
-    { id: 'inProgress', title: 'IN PROGRESS', tasks: [] },
-    { id: 'done', title: 'DONE', tasks: [] },
-  ],
+  columns: loadFromLocalStorage() || defaultColumns,
 };
 
 const boardSlice = createSlice({

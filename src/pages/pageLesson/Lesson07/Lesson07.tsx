@@ -1,9 +1,16 @@
 // Lesson07.tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../store/store';
 import Column from './Column';
-import { ColumnType, addTask, editTask, deleteTask, moveTask, moveTaskWithinColumn } from './kanbanSlice';
+import {
+  ColumnType,
+  addTask,
+  editTask,
+  deleteTask,
+  moveTask,
+  moveTaskWithinColumn
+} from './kanbanSlice';
 import { Button, Modal, Input, Radio } from 'antd';
 import { DragDropContext, DropResult } from '@hello-pangea/dnd';
 
@@ -16,6 +23,10 @@ export const Lesson07 = () => {
   const [showModal, setShowModal] = useState(false);
   const [newTaskContent, setNewTaskContent] = useState('');
   const [newTaskColumn, setNewTaskColumn] = useState<ColumnType>('todo');
+
+  useEffect(() => {
+    localStorage.setItem('kanban-board', JSON.stringify(columns));
+  }, [columns]);
 
   const handleCreateNew = (columnId: ColumnType) => {
     setNewTaskColumn(columnId);
