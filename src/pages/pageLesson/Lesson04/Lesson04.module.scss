@@ -1,0 +1,79 @@
+.container {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.formWrapper {
+  margin-bottom: 3rem;
+}
+
+.formTitle {
+  margin: 1.5rem 0;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.formGrid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.input {
+  width: 100%;
+  padding: 0.625rem;
+  font-size: 0.875rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: #1677ff;
+  }
+}
+
+.errorInput {
+  background-color: #fef2f2;
+  border-color: #ef4444;
+  color: #b91c1c;
+
+  &::placeholder {
+    color: #f87171;
+  }
+}
+
+.errorMessage {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.submitButton {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+.verticalStack {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.blockWrapper {
+  width: 100%;
+}
+
+.formGrid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
