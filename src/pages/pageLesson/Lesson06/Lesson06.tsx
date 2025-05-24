@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Input, Select, Button, Radio, Row, Col, Table } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import styles from './Lesson06.module.scss';
+import TagList from './TagList';
 
 const { Option } = Select;
 
@@ -95,18 +96,20 @@ export const Lesson06 = () => {
           <Col span={12}>
             <label>Tag</label>
             <Select
-              mode="multiple"
-              placeholder="Tag"
-              style={{ width: '100%' }}
-              value={tags}
-              onChange={setTags}
-            >
-              <Option value="tag1">kylapplikationer</Option>
-              <Option value="tag2">vid</Option>
-              <Option value="tag3">marknader</Option>
-              <Option value="tag4">grundläggande</Option>
-              <Option value="tag5">energioptimering</Option>
-            </Select>
+  mode="multiple"
+  placeholder="Tag"
+  style={{ width: '100%' }}
+  value={tags}
+  onChange={setTags}
+>
+  <Option value="kylapplikationer">kylapplikationer</Option>
+  <Option value="vid">vid</Option>
+  <Option value="marknader">marknader</Option>
+  <Option value="grundläggande">grundläggande</Option>
+  <Option value="energioptimering">energioptimering</Option>
+</Select>
+<TagList tags={tags} setTags={setTags} />
+
           </Col>
         </Row>
 

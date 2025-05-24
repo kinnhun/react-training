@@ -129,3 +129,28 @@
     }
   }
   
+
+
+
+  .tagDisplay {
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  
+    .tag {
+      background: #f5222d;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+  
+      .close {
+        cursor: pointer;
+        font-weight: bold;
+      }
+    }
+  }
+  
