@@ -1,9 +1,12 @@
+// src/store/store.ts
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './authSlice';
+import boardReducer from '../pages/pageLesson/Lesson07/kanbanSlice'; // ✅ Thêm dòng này
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
+    board: boardReducer, // ✅ Đăng ký thêm slice
   },
 });
 
