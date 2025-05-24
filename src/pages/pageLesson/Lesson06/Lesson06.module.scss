@@ -1,0 +1,131 @@
+.wrapper {
+  padding: 40px 80px;
+}
+
+.title {
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+
+.formWrapper {
+  padding-bottom: 40px;
+  margin-bottom: 32px;
+}
+
+.formTitle {
+  font-size: 24px;
+  margin-bottom: 32px;
+}
+
+.rowInputs {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 28px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  width: 431px;
+}
+
+.label {
+  font-size: 16px;
+  opacity: 0.6;
+  margin-bottom: 4px;
+}
+
+.input {
+  padding: 9px 16px;
+  border: 1px solid black;
+}
+
+.select {
+  width: 100%;
+}
+
+.advancedFilterBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-bottom: 22px;
+}
+
+.advancedFilterRow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  .filterContent {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .radioGroupWrapper {
+    margin-left: 40px;
+    margin-top: 8px;
+  }
+}
+
+.selectMedium {
+  width: 318px;
+}
+
+.inputLarge {
+  width: 386px;
+  padding: 9px 16px;
+  border: 1px solid black;
+}
+
+.text {
+  font-size: 16px;
+}
+
+.moreFilterBtn {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.submitBtn {
+  padding: 12px 36px;
+  background-color: #86efac !important;
+  color: white;
+  border-radius: 8px;
+  &:hover {
+    background-color: #94a3b8 !important;
+  }
+}
+
+.clearBtn {
+  padding: 12px 36px;
+  border-radius: 8px;
+  &:hover {
+    background-color: #94a3b8;
+  }
+}
+.filterContent {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  
+    .ant-select,
+    .ant-input {
+      min-width: 160px;
+    }
+  
+    .deleteIcon {
+      margin-left: 8px;
+      cursor: pointer;
+    }
+  }
+  

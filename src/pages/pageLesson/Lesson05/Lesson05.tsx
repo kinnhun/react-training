@@ -1,8 +1,8 @@
-import  { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Table, Button, Checkbox, Dropdown, Select, Pagination } from 'antd';
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table';
 import axios from 'axios';
-import styles from './Lesson05.module.scss';
+import styles from './Lesson05.module.scss'; 
 
 interface Product {
   id: number;
@@ -74,52 +74,52 @@ export const Lesson05: React.FC = () => {
 
   const allColumns: ColumnsType<Product> = [
     { title: 'ID', dataIndex: 'id', key: 'id', sorter: (a, b) => a.id - b.id },
-    { title: 'Title', dataIndex: 'title', key: 'title', sorter: (a, b) => a.title.localeCompare(b.title) },
+    { title: 'TITLE', dataIndex: 'title', key: 'title', sorter: (a, b) => a.title.localeCompare(b.title) },
     {
-      title: 'Description',
+      title: 'DESCRIPTION',
       dataIndex: 'description',
       key: 'description',
       className: 'descriptionColumn',
     },
-    { title: 'Price', dataIndex: 'price', key: 'price', sorter: (a, b) => a.price - b.price },
-    { title: 'Discount', dataIndex: 'discountPercentage', key: 'discountPercentage' },
-    { title: 'Category', dataIndex: 'category', key: 'category' },
-    { title: 'Rating', dataIndex: 'rating', key: 'rating' },
-    { title: 'Stock', dataIndex: 'stock', key: 'stock' },
+    { title: 'PRICE', dataIndex: 'price', key: 'price', sorter: (a, b) => a.price - b.price },
+    { title: 'DISCOUNT', dataIndex: 'discountPercentage', key: 'discountPercentage' },
+    { title: 'CATEGORY', dataIndex: 'category', key: 'category' },
+    { title: 'RATING', dataIndex: 'rating', key: 'rating' },
+    { title: 'STOCK', dataIndex: 'stock', key: 'stock' },
     {
-      title: 'Tags',
+      title: 'TAGS',
       dataIndex: 'tags',
       key: 'tags',
       render: (tags: string[]) => tags?.join(', '),
     },
-    { title: 'Brand', dataIndex: 'brand', key: 'brand' },
+    { title: 'BRAND', dataIndex: 'brand', key: 'brand' },
     { title: 'SKU', dataIndex: 'sku', key: 'sku' },
-    { title: 'Weight', dataIndex: 'weight', key: 'weight' },
+    { title: 'WEIGHT', dataIndex: 'weight', key: 'weight' },
     {
-      title: 'Dimensions',
+      title: 'DIMENSIONS',
       dataIndex: 'dimensions',
       key: 'dimensions',
       render: (d) => d ? `${d.width}x${d.height}x${d.depth}` : '',
     },
-    { title: 'Warranty Info', dataIndex: 'warrantyInformation', key: 'warrantyInformation' },
-    { title: 'Shipping Info', dataIndex: 'shippingInformation', key: 'shippingInformation' },
-    { title: 'Status', dataIndex: 'availabilityStatus', key: 'availabilityStatus' },
+    { title: 'WARRANTY INFO', dataIndex: 'warrantyInformation', key: 'warrantyInformation' },
+    { title: 'SHIPPING INFO', dataIndex: 'shippingInformation', key: 'shippingInformation' },
+    { title: 'STATUS', dataIndex: 'availabilityStatus', key: 'availabilityStatus' },
     {
-      title: 'Reviews',
+      title: 'REVIEWS',
       dataIndex: 'reviews',
       key: 'reviews',
       render: (reviews) => reviews?.length ? `${reviews.length} review(s)` : 'No reviews',
     },
-    { title: 'Return Policy', dataIndex: 'returnPolicy', key: 'returnPolicy' },
-    { title: 'Min Order Qty', dataIndex: 'minimumOrderQuantity', key: 'minimumOrderQuantity' },
+    { title: 'RETURN POLICY', dataIndex: 'returnPolicy', key: 'returnPolicy' },
+    { title: 'MIN ORDER QTY', dataIndex: 'minimumOrderQuantity', key: 'minimumOrderQuantity' },
     {
-      title: 'Meta',
+      title: 'META',
       dataIndex: 'meta',
       key: 'meta',
       render: (meta) => meta?.barcode || '',
     },
     {
-      title: 'Images',
+      title: 'IMAGES',
       dataIndex: 'images',
       key: 'images',
       render: (images) =>
@@ -128,7 +128,7 @@ export const Lesson05: React.FC = () => {
         ) : null,
     },
     {
-      title: 'Thumbnail',
+      title: 'THUMBNAIL',
       dataIndex: 'thumbnail',
       key: 'thumbnail',
       render: (thumb) => <img src={thumb} alt="thumb" style={{ width: 30, height: 30 }} />,
@@ -180,21 +180,15 @@ export const Lesson05: React.FC = () => {
 
       <div className={styles.columnList}>
         {allColumns
-          .filter((col) => {
-            typeof col.title === 'string' && (
-              col.title.toLowerCase().includes(searchText.toLowerCase())
-            )
-          }
-          )
+          .filter((col) =>
+            col.title?.toString().toLowerCase().includes(searchText.toLowerCase())          )
           .map((col) => (
             <Checkbox
               key={col.key}
               checked={tempSelectedColumns.includes(col.key as string)}
               onChange={() => handleColumnChange(col.key as string)}
             >
-              {typeof col.title === 'string' && (
-                <span className={styles.columnTitle}>{col.title}</span>
-              )}
+              {col.title?.toString()}
             </Checkbox>
           ))}
       </div>
@@ -222,10 +216,10 @@ export const Lesson05: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <h2 className="text-xl font-semibold">Thực hành xử lý bảng + dữ liệu (dynamic table)</h2>
         <div className={styles.tableControls}>
-          <Dropdown dropdownRender={() => columnDropdown} trigger={['click']}>
+        <Dropdown dropdownRender={() => columnDropdown} trigger={['click']}>
             <Button ref={dropdownRef}>Columns</Button>
           </Dropdown>
-
+      
           <Select
             value={pagination.pageSize}
             onChange={(value) => setPagination({ ...pagination, pageSize: value, current: 1 })}
@@ -267,6 +261,7 @@ export const Lesson05: React.FC = () => {
         loading={loading}
         pagination={false}
         onChange={handleTableChange}
+        rowClassName={(record, index) => (index % 2 === 0 ? styles.oddRow : '')}
       />
     </div>
   );
