@@ -1,0 +1,119 @@
+.tableControls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  button,
+  .ant-select,
+  .ant-pagination {
+    margin: 0;
+  }
+
+  .ant-select {
+    min-width: 120px;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.tableControls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.columnDropdown {
+  width: 240px;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #000000;
+}
+
+.columnDropdownHeader {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.columnSearch {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.columnList {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.columnDropdownActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+
+  button {
+    min-width: 70px;
+  }
+}
+
+
+
+
+.customTable {
+  .ant-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .ant-table {
+    min-width: 1200px;
+  }
+
+  .ant-table-thead>tr>th,
+  .ant-table-tbody>tr>td {
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  // Áp dụng cho tất cả cột mặc định
+  .defaultColumn {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    min-width: 120px;
+    max-width: 250px;
+  }
+
+  // Cột đặc biệt như mô tả
+  .descriptionColumn {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    max-width: 300px !important;
+    min-width: 200px !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+
+  .ant-table-cell img {
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+  }
+}
