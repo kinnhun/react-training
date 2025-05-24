@@ -13,6 +13,7 @@ export const Lesson06 = () => {
       filters: [{ column: '', condition: 'is', value: '' }]
     }
   ]);
+  const [unlockedTags, setUnlockedTags] = useState<string[]>([]);
 
   const [tags, setTags] = useState([]);
   const [freeText, setFreeText] = useState('');
@@ -57,12 +58,14 @@ export const Lesson06 = () => {
       operatorsOrder: filterGroups.map((g) => g.logic.toUpperCase()),
       freeText: freeText
     };
+  
     setResults([{
       filter: JSON.stringify(data),
-      tags: tags.join(',')
+      tags: unlockedTags.join(',') // Chỉ dùng tag đang mở khóa
     }]);
   };
-
+  
+  
   const handleClear = () => {
     setFilterGroups([{ logic: 'or', filters: [{ column: '', condition: 'is', value: '' }] }]);
     setTags([]);
@@ -96,19 +99,19 @@ export const Lesson06 = () => {
           <Col span={12}>
             <label>Tag</label>
             <Select
-  mode="multiple"
-  placeholder="Tag"
-  style={{ width: '100%' }}
-  value={tags}
-  onChange={setTags}
->
-  <Option value="kylapplikationer">kylapplikationer</Option>
-  <Option value="vid">vid</Option>
-  <Option value="marknader">marknader</Option>
-  <Option value="grundläggande">grundläggande</Option>
-  <Option value="energioptimering">energioptimering</Option>
-</Select>
-<TagList tags={tags} setTags={setTags} />
+              mode="multiple"
+              placeholder="Tag"
+              style={{ width: '100%' }}
+              value={tags}
+              onChange={setTags}
+            >
+              <Option value="kylapplikationer">kylapplikationer</Option>
+              <Option value="vid">vid</Option>
+              <Option value="marknader">marknader</Option>
+              <Option value="grundläggande">grundläggande</Option>
+              <Option value="energioptimering">energioptimering</Option>
+            </Select>
+            <TagList tags={tags} setTags={setTags} onUnlockedTagsChange={setUnlockedTags} />
 
           </Col>
         </Row>
