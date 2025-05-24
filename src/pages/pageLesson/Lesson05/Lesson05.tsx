@@ -261,8 +261,8 @@ export const Lesson05: React.FC = () => {
         loading={loading}
         pagination={false}
         onChange={handleTableChange}
-        rowClassName={(record, index) => (index % 2 === 0 ? styles.oddRow : '')}
-      />
+        rowClassName={(_record, index) => (index % 2 === 0 ? styles.oddRow : '')}
+        />
     </div>
   );
 };
