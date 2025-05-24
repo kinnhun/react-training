@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Input, Select, Button, Radio, Row, Col, Table } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import styles from './Lesson06.module.scss';
@@ -30,8 +30,12 @@ export const Lesson06 = () => {
 
   const handleChange = (groupIndex: number, index: number, key: string, value: string) => {
     const newGroups = [...filterGroups];
-    newGroups[groupIndex].filters[index][key] = value;
-    setFilterGroups(newGroups);
+    const updatedFilter = {
+      ...newGroups[groupIndex].filters[index],
+      [key]: value
+    };
+    newGroups[groupIndex].filters[index] = updatedFilter;
+    setFilterGroups([...newGroups]);
   };
 
   const handleLogicChange = (groupIndex: number, value: string) => {

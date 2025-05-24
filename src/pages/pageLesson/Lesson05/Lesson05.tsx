@@ -152,7 +152,7 @@ export const Lesson05: React.FC = () => {
   };
 
   const [tempSelectedColumns, setTempSelectedColumns] = useState<string[]>(columnsVisible);
-  const [dropdownVisible, setDropdownVisible] = useState(false);
+  // const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const handleColumnChange = (key: string) => {
     setTempSelectedColumns(prev =>
