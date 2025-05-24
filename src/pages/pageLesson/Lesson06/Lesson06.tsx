@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { Input, Select, Button, Radio, Row, Col, Table } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import styles from './Lesson06.module.scss';
@@ -14,8 +14,7 @@ export const Lesson06 = () => {
     }
   ]);
   const [unlockedTags, setUnlockedTags] = useState<string[]>([]);
-
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<string[]>([]); // ✅ FIXED: thêm kiểu string[]
   const [freeText, setFreeText] = useState('');
   const [results, setResults] = useState<any[]>([]);
 
@@ -62,14 +61,13 @@ export const Lesson06 = () => {
       operatorsOrder: filterGroups.map((g) => g.logic.toUpperCase()),
       freeText: freeText
     };
-  
+
     setResults([{
       filter: JSON.stringify(data),
-      tags: unlockedTags.join(',') // Chỉ dùng tag đang mở khóa
+      tags: unlockedTags.join(',') // ✅ CHỈ DÙNG TAG ĐÃ MỞ KHÓA
     }]);
   };
-  
-  
+
   const handleClear = () => {
     setFilterGroups([{ logic: 'or', filters: [{ column: '', condition: 'is', value: '' }] }]);
     setTags([]);
@@ -116,7 +114,6 @@ export const Lesson06 = () => {
               <Option value="energioptimering">energioptimering</Option>
             </Select>
             <TagList tags={tags} setTags={setTags} onUnlockedTagsChange={setUnlockedTags} />
-
           </Col>
         </Row>
 
