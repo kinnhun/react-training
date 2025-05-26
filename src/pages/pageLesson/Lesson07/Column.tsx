@@ -22,9 +22,14 @@ const Column: React.FC<Props> = ({ column, onNewTask, onEdit, onDelete }) => {
           bordered
           title={
             <div className={styles.header}>
-              <Badge count={column.tasks.length} style={{ backgroundColor: '#1890ff' }}>
+              <Badge
+                count={column.tasks.length}
+                style={{ backgroundColor: '#1890ff' }}
+                offset={[10, 0]} // dịch sang phải 10px
+              >
                 <span className={styles.title}>{column.title.toUpperCase()}</span>
               </Badge>
+
               <Button size="small" type="primary" onClick={onNewTask}>
                 + New Task
               </Button>
