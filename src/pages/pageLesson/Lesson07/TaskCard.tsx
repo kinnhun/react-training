@@ -1,6 +1,6 @@
 // TaskCard.tsx
 import React from 'react';
-import { Task } from './kanbanSlice';
+import type { Task } from './kanbanSlice';
 import { Card, Typography, Space } from 'antd';
 import { EditOutlined, DeleteOutlined, CalendarOutlined } from '@ant-design/icons';
 

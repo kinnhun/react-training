@@ -6,7 +6,7 @@ import Column from './Column';
 import type { ColumnType } from './kanbanSlice';
 import { addTask, editTask, deleteTask, moveTask, moveTaskWithinColumn } from './kanbanSlice';
 
-import { Button, Modal, Input, Radio } from 'antd';
+import {  Modal, Input, Radio } from 'antd';
 import { DragDropContext } from '@hello-pangea/dnd';
 import type { DropResult } from '@hello-pangea/dnd';
 
