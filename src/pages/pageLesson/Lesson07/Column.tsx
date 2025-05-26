@@ -1,6 +1,5 @@
-// Column.tsx
 import React from 'react';
-import { Column as ColumnType } from './kanbanSlice';
+import type { Column as ColumnType } from './kanbanSlice'; // ✅ import type-only
 import TaskCard from './TaskCard';
 import { Card, Button, Badge } from 'antd';
 import { Droppable, Draggable } from '@hello-pangea/dnd';
@@ -16,7 +15,7 @@ interface Props {
 const Column: React.FC<Props> = ({ column, onNewTask, onEdit, onDelete }) => {
   return (
     <Droppable droppableId={column.id} type="task">
-      {(provided, snapshot) => (
+      {(provided) => ( // ✅ bỏ snapshot
         <Card
           className={styles.column}
           bordered
@@ -25,7 +24,7 @@ const Column: React.FC<Props> = ({ column, onNewTask, onEdit, onDelete }) => {
               <Badge
                 count={column.tasks.length}
                 style={{ backgroundColor: '#1890ff' }}
-                offset={[10, 0]} // dịch sang phải 10px
+                offset={[10, 0]}
               >
                 <span className={styles.title}>{column.title.toUpperCase()}</span>
               </Badge>
