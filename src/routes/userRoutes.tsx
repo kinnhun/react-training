@@ -17,6 +17,7 @@ import { Lesson05 } from '../pages/pageLesson/Lesson05/Lesson05'
 import { Lesson06 } from '../pages/pageLesson/Lesson06/Lesson06'
 import { Lesson07 } from '../pages/pageLesson/Lesson07/Lesson07'
 import { Lesson08 } from '../pages/pageLesson/Lesson08/Lesson08'
+import { Lesson10 } from '@/pages/pageLesson/Lesson10/Lesson10'
 
 
 
@@ -143,6 +144,14 @@ export const userRoutes = [
         </ProtectedRoute>
       ),
     },
+    {
+      path: '10',
+      element:(
+        <ProtectedRoute>
+        <Lesson10 />
+      </ProtectedRoute>
+      )
+    }
   ],
 }
 ]

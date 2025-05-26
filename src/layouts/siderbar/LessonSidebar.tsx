@@ -1,7 +1,7 @@
 import styles from './LessonSidebar.module.scss';
 import { NavLink } from 'react-router-dom';
 
-const lessons = Array.from({ length: 8 }, (_, i) => i + 1);
+const lessons = Array.from({ length: 10 }, (_, i) => i + 1).filter(num => num !== 9);
 
 const LessonSidebar = () => {
   return (
