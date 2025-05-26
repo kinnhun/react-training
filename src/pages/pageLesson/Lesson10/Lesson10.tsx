@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { useProductsQuery } from '@/services/product/queries'
 import {
   useAddProduct,
