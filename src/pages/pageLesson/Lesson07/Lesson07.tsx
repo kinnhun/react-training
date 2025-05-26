@@ -1,18 +1,14 @@
 // Lesson07.tsx
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../../store/store';
+import type { RootState } from '../../../store/store';
 import Column from './Column';
-import {
-  ColumnType,
-  addTask,
-  editTask,
-  deleteTask,
-  moveTask,
-  moveTaskWithinColumn
-} from './kanbanSlice';
+import type { ColumnType } from './kanbanSlice';
+import { addTask, editTask, deleteTask, moveTask, moveTaskWithinColumn } from './kanbanSlice';
+
 import { Button, Modal, Input, Radio } from 'antd';
-import { DragDropContext, DropResult } from '@hello-pangea/dnd';
+import { DragDropContext } from '@hello-pangea/dnd';
+import type { DropResult } from '@hello-pangea/dnd';
 
 const columnOrder: ColumnType[] = ['todo', 'inProgress', 'done'];
 
