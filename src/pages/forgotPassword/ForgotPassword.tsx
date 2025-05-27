@@ -1,4 +1,5 @@
 import styles from './ForgotPassword.module.scss';
+import { Link } from 'react-router-dom';
 
 const ForgotPassword = () => {
   return (
@@ -26,9 +27,10 @@ const ForgotPassword = () => {
 
           <p className={styles.footer}>
             You have an account yet?{' '}
-            <a href="sign-in" className={styles.link}>
+            <Link to="../sign-in" className={styles.link}>
               Sign in
-            </a>
+            </Link>
+
           </p>
         </form>
       </div>

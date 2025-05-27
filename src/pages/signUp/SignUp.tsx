@@ -1,4 +1,5 @@
- 
+
+import { Link } from 'react-router-dom';
 import styles from './SignUp.module.scss';
 
 const SignUp = () => {
@@ -44,7 +45,7 @@ const SignUp = () => {
           <button type="submit" className={styles.button}>Sign up</button>
 
           <p className={styles.footer}>
-            You have an account yet? <a href="sign-in" className={styles.link}>Sign in</a>
+            You have an account yet? <Link to="../sign-in" className={styles.link}>Sign in</Link>
           </p>
         </form>
       </div>

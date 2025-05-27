@@ -1,9 +1,10 @@
- 
+
 import styles from './SignIn.module.scss';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/authSlice';
 import type { AppDispatch } from '../../store/store';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 
 const SignIn = () => {
@@ -23,7 +24,7 @@ const SignIn = () => {
     window.location.href = 'welcome';
     toast.success('Login thành công!');
   };
-  
+
 
 
 
@@ -60,9 +61,11 @@ const SignIn = () => {
               <input type="checkbox" />
               Remember me
             </label>
-            <a href="forgot-password" className={styles.link}>
+
+            <Link to="../forgot-password" className={styles.link}>
               Forgot password?
-            </a>
+            </Link>
+
           </div>
 
           <button type="submit" className={styles.button}>
@@ -71,9 +74,9 @@ const SignIn = () => {
 
           <p className={styles.footerText}>
             Don’t have an account yet?{' '}
-            <a href="sign-up" className={styles.link}>
+            <Link to="../sign-up" className={styles.link}>
               Sign up
-            </a>
+            </Link>
           </p>
         </form>
       </div>
