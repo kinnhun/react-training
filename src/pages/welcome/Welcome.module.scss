@@ -14,14 +14,17 @@
     color: #111827;
   }
 
-  p {
-    font-size: 1.125rem;
-    color: #374151;
-  }
-  .link {
-  
-    text-decoration: none;
 
-   
-  }
+  
+.link {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.hoverEffect:hover {
+  color: #007bff; // Màu xanh Bootstrap hoặc chọn màu khác bạn muốn
+}
+
+ 
 }

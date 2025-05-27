@@ -15,7 +15,7 @@ export const LessonLayout = () => {
     <div className={styles.wrapper}>
       <header className={styles.header}>
 
-        <Link to="/" className={styles.logo}>
+        <Link to="/lesson" className={styles.logo}>
         <span >All lesson</span>
         </Link>
         
